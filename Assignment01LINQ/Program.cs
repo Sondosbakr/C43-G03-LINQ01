@@ -187,6 +187,7 @@ namespace Assignment01LINQ
             //    Console.WriteLine(item);
             //}
             #endregion
+
             #region 4. Sort a list of digits, first by length of their name, and then alphabetically by the name itself.
 
             //string[] Arr = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
@@ -199,8 +200,16 @@ namespace Assignment01LINQ
             #endregion
 
             #region 5. Sort first by-word length and then by a case-insensitive sort of the words in an array.
-            String[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
-            var Result = Arr.OrderBy(x => x.Length).ThenBy(x => x, new CaseInsensitiveComparer());
+            //String[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+            //var Result = Arr.OrderBy(x => x.Length).ThenBy(x => x, new CaseInsensitiveComparer());
+            //foreach (var item in Result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+
+            #region 6. Sort a list of products, first by category, and then by unit price, from highest to lowest.
+            var Result = ProductsList.OrderBy(p => p.Category).ThenByDescending(p => p.UnitPrice);
             foreach (var item in Result)
             {
                 Console.WriteLine(item);
