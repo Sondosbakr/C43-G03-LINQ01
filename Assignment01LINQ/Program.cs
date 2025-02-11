@@ -92,24 +92,33 @@ namespace Assignment01LINQ
             #endregion
 
             #region 3. Return a list of categories and how many products each has
-            var Result = ProductsList.GroupBy(g => g.Category)
-                .Select(p => new
-                {
-                    Category = p.Key,
-                    ProductCount = p.Count()
-                });
+            //var Result = ProductsList.GroupBy(g => g.Category)
+            //    .Select(p => new
+            //    {
+            //        Category = p.Key,
+            //        ProductCount = p.Count()
+            //    });
 
-            Result = from p in ProductsList
-                     group p by p.Category into g
-                     select new
-                     {
-                         Category = g.Key,
-                         ProductCount = g.Count()
-                     };
-            foreach (var item in Result)
-            {
-                Console.WriteLine(item);
-            }
+            //Result = from p in ProductsList
+            //         group p by p.Category into g
+            //         select new
+            //         {
+            //             Category = g.Key,
+            //             ProductCount = g.Count()
+            //         };
+            //foreach (var item in Result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+
+            #region 4. Get the total of the numbers in an array.
+            int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
+            var Result = Arr.Sum();
+            Result = (from s in Arr
+                     select s).Sum();
+            Console.WriteLine(Result);
             #endregion
             #endregion
 
