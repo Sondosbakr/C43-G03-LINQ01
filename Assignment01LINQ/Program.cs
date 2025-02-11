@@ -297,13 +297,26 @@ namespace Assignment01LINQ
             #endregion
 
             #region 4. Determine if the value of int in an array matches their position in the array.
-            int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-            var Result = Arr.Select((value, index) => new
-            {
-                Value = value,
-                Index = value == index,
-            });
-           
+            //int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            //var Result = Arr.Select((value, index) => new
+            //{
+            //    Value = value,
+            //    Index = value == index,
+            //});
+
+            //foreach (var item in Result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            #endregion
+
+            #region 6.Select all orders where the order total is less than 500.00.
+            var Result = CustomersList.SelectMany(c => c.Orders).Where(o => o.Total < 500);
+            Result = from c in CustomersList
+                         from o in c.Orders
+                         where o.Total < 500
+                         select o;
             foreach (var item in Result)
             {
                 Console.WriteLine(item);
