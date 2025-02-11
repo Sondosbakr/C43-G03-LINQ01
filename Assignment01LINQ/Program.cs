@@ -255,24 +255,45 @@ namespace Assignment01LINQ
             #endregion
 
             #region 2. Produce a sequence of the uppercase and lowercase versions of each word in the original array (Anonymous Types).
-            String[] words = { "aPPLE", "BlUeBeRrY", "cHeRry" };
-            var Result = words.Select(x => new
+            //String[] words = { "aPPLE", "BlUeBeRrY", "cHeRry" };
+            //var Result = words.Select(x => new
+            //{
+            //    Upper = x.ToUpper(),
+            //    Lower = x.ToLower(),
+            //});
+
+            //Result = from x in words
+            //         select new
+            //         {
+            //             Upper = x.ToUpper(),
+            //             Lower = x.ToLower(),
+            //         };
+            //foreach (var item in Result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            #endregion
+
+            #region 3. Produce a sequence containing some properties of Products, including UnitPrice which is renamed to Price in the resulting type.
+            var Result = ProductsList.Select(x => new
             {
-                Upper = x.ToUpper(),
-                Lower = x.ToLower(),
+                Id = x.ProductID,
+                Name = x.ProductName,
+                Price = x.UnitPrice,
             });
 
-            Result = from x in words
+            Result = from x in ProductsList
                      select new
                      {
-                         Upper = x.ToUpper(),
-                         Lower = x.ToLower(),
+                         Id = x.ProductID,
+                         Name = x.ProductName,
+                         Price = x.UnitPrice,
                      };
             foreach (var item in Result)
             {
                 Console.WriteLine(item);
             }
-
             #endregion
             #endregion
 
