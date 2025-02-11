@@ -276,24 +276,39 @@ namespace Assignment01LINQ
             #endregion
 
             #region 3. Produce a sequence containing some properties of Products, including UnitPrice which is renamed to Price in the resulting type.
-            var Result = ProductsList.Select(x => new
-            {
-                Id = x.ProductID,
-                Name = x.ProductName,
-                Price = x.UnitPrice,
-            });
+            //var Result = ProductsList.Select(x => new
+            //{
+            //    Id = x.ProductID,
+            //    Name = x.ProductName,
+            //    Price = x.UnitPrice,
+            //});
 
-            Result = from x in ProductsList
-                     select new
-                     {
-                         Id = x.ProductID,
-                         Name = x.ProductName,
-                         Price = x.UnitPrice,
-                     };
+            //Result = from x in ProductsList
+            //         select new
+            //         {
+            //             Id = x.ProductID,
+            //             Name = x.ProductName,
+            //             Price = x.UnitPrice,
+            //         };
+            //foreach (var item in Result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+
+            #region 4. Determine if the value of int in an array matches their position in the array.
+            int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            var Result = Arr.Select((value, index) => new
+            {
+                Value = value,
+                Index = value == index,
+            });
+           
             foreach (var item in Result)
             {
                 Console.WriteLine(item);
             }
+
             #endregion
             #endregion
 
