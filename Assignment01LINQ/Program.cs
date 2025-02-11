@@ -312,16 +312,28 @@ namespace Assignment01LINQ
             #endregion
 
             #region 6.Select all orders where the order total is less than 500.00.
-            var Result = CustomersList.SelectMany(c => c.Orders).Where(o => o.Total < 500);
+            //var Result = CustomersList.SelectMany(c => c.Orders).Where(o => o.Total < 500);
+            //Result = from c in CustomersList
+            //             from o in c.Orders
+            //             where o.Total < 500
+            //             select o;
+            //foreach (var item in Result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            #endregion
+
+            #region 7. Select all orders where the order was made in 1998 or later.
+            var Result = CustomersList.SelectMany(c => c.Orders).Where(o => o.OrderDate.Year >= 1998);
             Result = from c in CustomersList
-                         from o in c.Orders
-                         where o.Total < 500
-                         select o;
+                     from o in c.Orders
+                     where o.OrderDate.Year >= 1998
+                     select o;
             foreach (var item in Result)
             {
                 Console.WriteLine(item);
             }
-
             #endregion
             #endregion
 
