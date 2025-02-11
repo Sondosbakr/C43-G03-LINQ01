@@ -128,10 +128,18 @@ namespace Assignment01LINQ
             #endregion
 
             #region 6. Get the length of the shortest word in dictionary_english.txt (Read dictionary_english.txt into Array of String First).
+            //string[] Words = File.ReadAllLines("dictionary_english.txt");
+            //var Result = Words.Min(x => x.Length);
+            //Result = (from word in Words
+            //         select word.Length).Min();
+            //Console.WriteLine(Result);
+            #endregion
+
+            #region 7. Get the length of the longest word in dictionary_english.txt (Read dictionary_english.txt into Array of String First).
             string[] Words = File.ReadAllLines("dictionary_english.txt");
-            var Result = Words.Min(x => x.Length);
+            var Result = Words.Max(x => x.Length);
             Result = (from word in Words
-                     select word.Length).Min();
+                     select word.Length).Max();
             Console.WriteLine(Result);
             #endregion
             #endregion
