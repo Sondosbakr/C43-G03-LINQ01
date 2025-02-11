@@ -122,8 +122,16 @@ namespace Assignment01LINQ
             #endregion
 
             #region 5. Get the total number of characters of all words in dictionary_english.txt (Read dictionary_english.txt into Array of String First).
+            //string[] Words = File.ReadAllLines("dictionary_english.txt");
+            //var Result = Words.Sum(word => word.Length);
+            //Console.WriteLine(Result);
+            #endregion
+
+            #region 6. Get the length of the shortest word in dictionary_english.txt (Read dictionary_english.txt into Array of String First).
             string[] Words = File.ReadAllLines("dictionary_english.txt");
-            var Result = Words.Sum(word => word.Length);
+            var Result = Words.Min(x => x.Length);
+            Result = (from word in Words
+                     select word.Length).Min();
             Console.WriteLine(Result);
             #endregion
             #endregion
