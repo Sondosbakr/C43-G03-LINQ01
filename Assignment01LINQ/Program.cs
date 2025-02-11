@@ -49,8 +49,14 @@ namespace Assignment01LINQ
             #endregion
 
             #region 2. Return the first product whose Price > 1000, unless there is no match, in which case null is returned.
-            var Result = ProductsList.FirstOrDefault(p => p.UnitPrice > 1000);
-            Console.WriteLine(Result?.ProductName??"no match");
+            //var Result = ProductsList.FirstOrDefault(p => p.UnitPrice > 1000);
+            //Console.WriteLine(Result?.ProductName??"no match");
+            #endregion
+
+            #region 3. Retrieve the second number greater than 5 
+            int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            var Result = Arr.Where(x => x > 5).Last();
+            Console.WriteLine(Result);
             #endregion
             #endregion
 
