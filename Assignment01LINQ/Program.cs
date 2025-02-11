@@ -70,6 +70,26 @@ namespace Assignment01LINQ
             //Console.WriteLine(Result);
 
             #endregion
+
+            #region 2. Return a list of customers and how many orders each has.
+            var Result = CustomersList.Select(c => new
+            {
+                Id = c.CustomerID,
+                Name = c.CustomerName,
+                Order = c.Orders.Count()
+            });
+            Result = from c in CustomersList
+                     select new
+                     {
+                         Id = c.CustomerID,
+                         Name = c.CustomerName,
+                         Order = c.Orders.Count()
+                     };
+            foreach (var item in Result)
+            {
+                Console.WriteLine(item);
+            }
+            #endregion
             #endregion
 
 
