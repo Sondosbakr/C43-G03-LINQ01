@@ -155,10 +155,19 @@ namespace Assignment01LINQ
 
             #region LINQ - Ordering Operators
             #region 1. Sort a list of products by name
-            var Result = ProductsList.OrderBy(p => p.ProductName);
-            Result = from p in ProductsList
-                     orderby p.ProductName
-                     select p;
+            //var Result = ProductsList.OrderBy(p => p.ProductName);
+            //Result = from p in ProductsList
+            //         orderby p.ProductName
+            //         select p;
+            //foreach (var item in Result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+
+            #region 2. Uses a custom comparer to do a case-insensitive sort of the words in an array.
+            String[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+            var Result = Arr.OrderBy(word => word, new CaseInsensitiveComparer());
             foreach (var item in Result)
             {
                 Console.WriteLine(item);
