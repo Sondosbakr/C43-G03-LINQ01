@@ -230,20 +230,30 @@ namespace Assignment01LINQ
             #endregion
 
             #region 8. Create a list of all digits in the array whose second letter is 'i' that is reversed from the order in the original array.
-            string[] Arr = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-            var Result = Arr.Where(a => a.Length > 1 && a[1] == 'i');
-            Result = from a in Arr
-                     where a.Length > 1 && a[1] == 'i'
-                     select a;
+            //string[] Arr = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+            //var Result = Arr.Where(a => a.Length > 1 && a[1] == 'i');
+            //Result = from a in Arr
+            //         where a.Length > 1 && a[1] == 'i'
+            //         select a;
+            //foreach (var item in Result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+            #endregion
+
+
+            #region LINQ – Transformation Operators
+            #region 1. Return a sequence of just the names of a list of products.
+            var Result = ProductsList.Select(p => p.ProductName);
+            Result = from p in ProductsList
+                     select p.ProductName;
             foreach (var item in Result)
             {
                 Console.WriteLine(item);
             }
-
-
             #endregion
             #endregion
-
 
 
         }
