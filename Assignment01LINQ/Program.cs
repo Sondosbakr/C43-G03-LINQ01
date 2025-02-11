@@ -144,11 +144,25 @@ namespace Assignment01LINQ
             #endregion
 
             #region 8. Get the average length of the words in dictionary_english.txt (Read dictionary_english.txt into Array of String First).
-            string[] Words = File.ReadAllLines("dictionary_english.txt");
-            var Result = Words.Average(x => x.Length);
-            Result = (from word in Words
-                     select word.Length).Average();
-            Console.WriteLine(Result);
+            //string[] Words = File.ReadAllLines("dictionary_english.txt");
+            //var Result = Words.Average(x => x.Length);
+            //Result = (from word in Words
+            //         select word.Length).Average();
+            //Console.WriteLine(Result);
+            #endregion
+
+            #endregion
+
+            #region LINQ - Ordering Operators
+            #region 1. Sort a list of products by name
+            var Result = ProductsList.OrderBy(p => p.ProductName);
+            Result = from p in ProductsList
+                     orderby p.ProductName
+                     select p;
+            foreach (var item in Result)
+            {
+                Console.WriteLine(item);
+            }
             #endregion
             #endregion
 
