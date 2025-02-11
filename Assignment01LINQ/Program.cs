@@ -1,4 +1,6 @@
 ﻿using System.Net.WebSockets;
+using System.Runtime.Intrinsics.Arm;
+using System.Threading;
 using static Assignment01LINQ.ListGenerator;
 namespace Assignment01LINQ
 {
@@ -175,10 +177,20 @@ namespace Assignment01LINQ
             #endregion
 
             #region 3. Sort a list of products by units in stock from highest to lowest.
-            var Result = ProductsList.OrderByDescending(p => p.UnitsInStock);
-            Result = from p in ProductsList
-                     orderby p.UnitsInStock descending
-                     select p;
+            //var Result = ProductsList.OrderByDescending(p => p.UnitsInStock);
+            //Result = from p in ProductsList
+            //         orderby p.UnitsInStock descending
+            //         select p;
+            //foreach (var item in Result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+            #region 4. Sort a list of digits, first by length of their name, and then alphabetically by the name itself.
+
+            string[] Arr = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+            var Result = Arr.OrderBy(x => x.Length).ThenBy(x => x);
+
             foreach (var item in Result)
             {
                 Console.WriteLine(item);
