@@ -30,15 +30,22 @@ namespace Assignment01LINQ
             #endregion
 
             #region 3. Returns digits whose name is shorter than their value.
-            String[] Arr = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
-            var Result = Arr.Select((name, index) => new { digit = index, length = name.Length })
-                .Where(x => x.length < x.digit).Select(x => x.digit);
+            //String[] Arr = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+            //var Result = Arr.Select((name, index) => new { digit = index, length = name.Length })
+            //    .Where(x => x.length < x.digit).Select(x => x.digit);
 
-            foreach (var item in Result)
-            {
-                Console.WriteLine(item);
-            }
+            //foreach (var item in Result)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
+            #endregion
+            #endregion
+
+            #region LINQ - Element Operators
+            #region 1. Get first Product out of Stock 
+            var result = ProductsList.First(p => p.UnitsInStock == 0);
+            Console.WriteLine(result);
             #endregion
             #endregion
 
