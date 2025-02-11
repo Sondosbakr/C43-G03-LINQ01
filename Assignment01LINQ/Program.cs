@@ -166,8 +166,19 @@ namespace Assignment01LINQ
             #endregion
 
             #region 2. Uses a custom comparer to do a case-insensitive sort of the words in an array.
-            String[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
-            var Result = Arr.OrderBy(word => word, new CaseInsensitiveComparer());
+            //String[] Arr = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+            //var Result = Arr.OrderBy(word => word, new CaseInsensitiveComparer());
+            //foreach (var item in Result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+
+            #region 3. Sort a list of products by units in stock from highest to lowest.
+            var Result = ProductsList.OrderByDescending(p => p.UnitsInStock);
+            Result = from p in ProductsList
+                     orderby p.UnitsInStock descending
+                     select p;
             foreach (var item in Result)
             {
                 Console.WriteLine(item);
